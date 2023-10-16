@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"log"
 	"math/big"
@@ -17,6 +18,12 @@ func setUp() {
 	getConnection()
 }
 
+/*
+3.664417326111060898 ETH
+7.039516246461093584 ETH
+
+*/
+
 func main() {
 	setUp()
 	weisToSend := big.NewInt(0)
@@ -25,6 +32,15 @@ func main() {
 	fromAddress := ""
 	//destination wallet
 	toAddress := ""
+
+	zeroWEI := weisToSend.Cmp(big.NewInt(0))
+	if zeroWEI == 0 {
+		log.Fatal(errors.New("Must send non zero weis"))
+	}
+
+	if privateKey == "" || fromAddress == "" || toAddress == "" {
+		log.Fatal(errors.New("Invalid wallet info"))
+	}
 
 	// Get the balance of the from address
 	balance, err := getBalance(fromAddress)
