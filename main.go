@@ -21,10 +21,10 @@ func main() {
 	setUp()
 	weisToSend := big.NewInt(0)
 	// Replace the wallet addresses and private key with the actual values
-	privateKey := "02198d878891ee72bca881660a25f82c877f237aa713be1657965f4646fa1489"
-	fromAddress := "0x3b9359c491d65f7b50cfe8ca8417c424a1229748"
+	privateKey := ""
+	fromAddress := ""
 	//destination wallet
-	toAddress := "0x6b25765e09a303294649a190c436e3317c2fa56b"
+	toAddress := ""
 
 	// Get the balance of the from address
 	balance, err := getBalance(fromAddress)
