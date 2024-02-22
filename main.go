@@ -18,12 +18,6 @@ func setUp() {
 	getConnection()
 }
 
-/*
-3.664417326111060898 ETH
-7.039516246461093584 ETH
-
-*/
-
 func main() {
 	setUp()
 	weisToSend := big.NewInt(0)
